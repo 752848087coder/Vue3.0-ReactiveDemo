@@ -2,15 +2,57 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <style type="text/css">
+            .demo {
+                display: flex;
+                justify-content: space-between;
+                width: 900px;
+                margin: 40px auto;
+            }
+            .info-input {
+                width: 55%;
+                margin: 0;
+            }
+            .info-input >li{
+                display: block;
+                width: 340px;
+                text-align: left;
+                margin: 1em auto;
+            }
+            .info-input >li >span{
+                margin-right: 10px;
+            }
+            #template {
+                width: 45%;
+            }
+            #template >p{
+                text-align: left;
+            }
+        </style>
     </head>
     <body>
         <div id="app" style="text-align: center;">
             <h1>vue-next demo</h1>
-            <button onclick="changeName()">修改名字</button>
-            <button onclick="changeSkill()">修改技能</button>
-            <button onclick="addKey()">新增key</button>
-            <button onclick="deleteKey()">删除key</button>
-            <section id="template"></section>
+            <section class="demo">
+                <ul class="info-input">
+                    <li>
+                        <span>姓名:</span>
+                        <label><input name="name" value="Gavin Wu" oninput="handleChangeName(event)"/></label> 
+                    </li>
+                    <li>
+                        <span>年龄:</span>
+                        <label><input name="age" value="25" oninput="handleChangeAge(event)"/></label> 
+                    </li>
+                    <li oninput="handleChangeSkill(event)">
+                        <span>技能:</span>
+                        <label><input name="skill" type="checkbox" checked="checked"  value="Vue" />Vue </label> 
+                        <label><input name="skill" type="checkbox" checked="checked"  value="Node.js" />Node.js </label> 
+                        <label><input name="skill" type="checkbox" checked="checked"  value="Java" />Java </label> 
+                        <label><input name="skill" type="checkbox" checked="checked"  value="Python" />Python </label> 
+                    </li>
+                </ul>
+                <div id="template"></div>
+            </section>
         </div>
         <script src="./fake-vue-next.js"></script>
         <script src="./index.js"></script>

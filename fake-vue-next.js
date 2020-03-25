@@ -1,6 +1,6 @@
 /**
  * @file fake-vue-next
- * @author gavinwu
+ * @author Gavin Wu
  */
 
 (global => {

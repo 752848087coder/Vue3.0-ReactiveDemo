@@ -1,14 +1,14 @@
 /**
  * @file fake-vue-next
- * @author gavinwu
+ * @author Gavin Wu
  */
 
 const {reactive, effect} = window.fakevue;
 
 let originPerson = {
-    name: 'gavinwu',
+    name: 'Gavin Wu',
     age: 25,
-    skill: ['vue', 'js', 'java', 'python']
+    skill: ['Vue', 'Node.js', 'Java', 'Python']
 };
 
 let person = reactive(originPerson);
@@ -32,22 +32,15 @@ effect(() => {
     }
 });
 
-const changeName = () => {
-    person.name = 'change';
+const handleChangeName = (e) => {
+    person.name = e.target.value;
 };
 
-const changeSkill = () => {
-    person.skill[0] = 'change';
+const handleChangeAge = (e) => {
+    person.age = e.target.value;
 };
 
-const addKey = () => {
-    person['newKey'] = 'newVal';
-};
-
-const deleteKey = () => {
-    let keys = Object.keys(person);
-    if (keys.length) {
-        const lastKey = keys[keys.length - 1];
-        delete person[lastKey];
-    }
+const handleChangeSkill = (e) => {
+    let index = person.skill.indexOf(e.target.value);
+    index >= 0 ? person.skill.splice(index, 1): person.skill.push(e.target.value);
 };
